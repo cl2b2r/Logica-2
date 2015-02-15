@@ -1,0 +1,52 @@
+<canvas id="screen" widht="600" height="400"></canvas>
+
+<script>
+
+//Função para desenhar um quadrado verde de 50*50
+var quadradosVerdes = function(x,y)
+{
+	var screen = document.getElementById("screen");
+	var t = screen.getContext("2d");
+
+	t.fillStyle = "green";
+	t.fillRect(x, y, 50, 50);
+
+	//Desenha borda azul
+	t.strokeStyle = "blue";
+	t.strokeRect (x, y, 50, 50);
+};
+
+//Função para desenhar um quadrado vermelho de 50*50
+var quadradosVermelhos = function(x,y)
+{
+	var screen = document.getElementById("screen");
+	var t = screen.getContext("2d");
+
+	t.fillStyle = "red";
+	t.fillRect(x, y, 50, 50);
+
+	//Desenha borda marrom
+	t.strokeStyle = "brown";
+	t.strokeRect(x, y, 50, 50);
+};
+
+//Função para desenhar Circulo azul
+var circulosAzuis = function (x, y)
+{
+	var screen = document.getElementById("screen");
+	var t = screen.getContext("2d");
+
+	t.fillStyle="blue";
+	t.beginPath();
+	t.arc(x, y, 25, 0, 2*3.14);
+	t.fill();
+};
+
+for (var x = 0; x < 600; x = x + 50)
+{
+	quadradosVerdes (x, 0);
+	quadradosVermelhos (x, 50);
+	circulosAzuis (x, 100);
+}
+
+</script>

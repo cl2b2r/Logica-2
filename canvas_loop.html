@@ -1,0 +1,66 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+
+//Funcao para desenhar os quadrados verdes
+var desenhaQuadradoVerde = function(x,y) 
+{
+    	var tela = document.getElementById("tela");
+   	var c = tela.getContext("2d");
+
+    	c.fillStyle="green";
+    	c.fillRect(x, y, 50, 50);
+
+	//Linhas para colocar bordas
+	c.strokeStyle = "black";
+	c.strokeRect (x, y, 50, 50);
+};
+
+//Funcao para desenhar os quadrados vermelhos
+var desenhaQuadradoVermelho = function(x,y) 
+{
+    	var tela = document.getElementById("tela");
+   	var c = tela.getContext("2d");
+
+    	c.fillStyle="red";
+    	c.fillRect(x, y, 50, 50);
+
+	//Linhas para colocar bordas
+	c.strokeStyle = "black";
+	c.strokeRect (x, y, 50, 50);
+};
+
+//Estrutura com 1 for para desenhar ambas linhas
+for (var x = 0; x < 600; x = x + 50)
+{
+	desenhaQuadradoVerde (x, 0);
+	desenhaQuadradoVermelho (x, 50);
+}
+
+/*Estrutura com 2 for para desenhar as linhas vermelha e verde
+//Loop usando o for. Resultado igual ao do While
+for (var x = 0; x < 600; x = x + 50)
+{
+	desenhaQuadradoVerde (x, 0);
+}
+
+//Loop usando o for. Resultado igual ao do While
+for (var x = 0; x < 600; x = x + 50)
+{
+	desenhaQuadradoVermelho (x, 50);
+}
+*/
+
+//Forma de loop usando o While
+
+//var x = 0;
+//while (x < 600)
+//{
+//	desenhaQuadradoVerde(x, 0);
+//	x = x + 50;
+//}
+
+//Invocacao da funcao passando o posicionamento na tela
+//desenhaQuadradoVerde(0,0);
+
+</script>

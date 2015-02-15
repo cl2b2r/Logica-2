@@ -1,0 +1,20 @@
+<canvas id="screen" widht="600" height="400"></canvas>
+
+<script>
+//Função para desenhar um quadrado verde de 50*50
+var quadradosVerdes = function(x,y)
+{
+	var screen = document.getElementById("screen");
+	var t = screen.getContext("2d");
+
+	t.fillStyle = "green";
+	t.fillRect(x, y, 50, 50);
+
+	//Desenha borda azul
+	t.strokeStyle = "blue";
+	t.strokeRect(x, y, 50, 50);
+};
+
+quadradosVerdes(0,0);
+
+</script>

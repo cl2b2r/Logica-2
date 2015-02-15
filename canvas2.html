@@ -1,0 +1,36 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+var tela = document.getElementById("tela");
+var c= tela.getContext("2d");
+
+//Bandeira da Colombia
+//Retangulo Amarelo
+c.fillStyle="yellow";
+c.fillRect(0, 0, 150, 50);
+
+//Retangulo azul
+c.fillStyle="blue";
+c.fillRect(0, 50, 150, 25);
+
+//Retangulo vermelho
+c.fillStyle="red";
+//c.fillRect(posição inicial na tela, posição da faixa, cumprimento da faixa, largura da faixa); 
+c.fillRect(0, 75, 150, 25);
+
+//Bandeira de Madagascar
+//Retangulo branco
+c.fillStyle="white";
+c.fillRect(0, 50, 150, 0);
+
+//Retangulo vermelho
+c.fillStyle="red";
+c.fillRect(50,150, 100, 50);
+
+//Retangulo verde
+c.fillStyle="green";
+//c.fillRect(posição inicial na tela, posição da faixa, cumprimento da faixa, largura da faixa); 
+c.fillRect(50, 200, 100, 50);
+
+
+</script>

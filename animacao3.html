@@ -1,0 +1,39 @@
+<canvas id="tela" width="600" height="400"></canvas>
+<script>
+    var tela = document.getElementById("tela");
+    var c = tela.getContext("2d");
+
+    var imagem = new Image();
+    imagem.src = "http://www.gravatar.com/avatar/897707a1f574df4d83b0f6f824ae505c.png?r=PG&size=48x48&d=http%3A%2F%2Frobohash.org%2Fsize_48x48%2Fset_set1%2Fbgset_any%2F897707a1f574df4d83b0f6f824ae505c.png";
+
+    var x = 1;
+
+    var desenhaImagem = function(x, y)
+    {
+        c.drawImage(imagem, x, y);
+    };
+
+        /*var circulo = function(x, y, raio)
+    {
+        c.fillStyle = "blue";
+        c.beginPath();
+        c.arc(x, y, raio, 0, 2 * Math.PI);
+        c.fill();
+    };*/
+
+    var limpaTela = function()
+    {
+        c.clearRect(0, 0, 600, 400);
+    };
+
+    var desenha = function()
+    {
+        limpaTela();
+        //circulo(x, 100, 10);
+        desenhaImagem(x, 100);
+        x = x + 1;
+    };
+
+    setInterval(desenha, 30);
+
+</script>
