@@ -1,0 +1,52 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+
+var tela = document.getElementById("tela");
+var c = tela.getContext("2d");
+
+c.fillStyle = "gray"
+c.fillRect(0,0,600,400);
+
+var cor;
+
+//Funcao para desenhar os circulos
+var desenhaCirculos = function(x,y)
+{
+	/*Marca o clique com uma bola azul (raio 10) no local */
+	c.fillStyle = cor;
+	c.beginPath();
+	c.arc(x, y, 10, 0, 2 * 3.14);
+	c.fill();
+};
+
+//Funcao para monitorar o botao do mouse clicado e atribuir cor. 0 esquerdo e 2 direito
+tela.addEventListener('mousedown', function qualBotao(evento)
+{
+	var x = evento.pageX - tela.offsetLeft;
+	var y = evento.pageY - tela.offsetTop;
+
+	if(0 == evento.button)
+	{
+		cor = "blue";
+	} else if (2 == evento.button)
+	{
+		cor = "red";
+	}
+
+//Loga no console a posicao do clique
+console.log("Posicao do clique: " + x + ", " + y);
+
+//Chama a funcao para desenhar o circulo
+desenhaCirculos(x, y, cor);
+}, true);
+
+//Desabilita o menu com o botao direito
+var desabilitar = function()
+{
+	return false;
+};
+
+document.oncontextmenu = desabilitar;
+
+</script>
