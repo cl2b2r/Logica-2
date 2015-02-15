@@ -1,0 +1,65 @@
+<meta charset="UTF-8">
+
+<style>
+    body {background: #556B2F; margin: 0;}
+    canvas {background: #90EE90;}
+</style>
+
+<canvas id="tela" width="1355" height="622"></canvas>
+
+<script>
+    var tela = document.getElementById("tela");
+    var c = tela.getContext("2d");
+    var corBranca = "white";
+    var corVermelha = "red";
+    var raio = 50;
+    var eixoX;
+    var eixoY;
+
+  function circulo(eixoX,eixoY,raio,cor) {
+        c.fillStyle = cor;
+        c.beginPath();
+        c.arc(eixoX, eixoY, raio, 0, 2*Math.PI);
+        c.fill();
+    };
+
+    function limpaTela() {
+        c.clearRect(0, 0, 1355, 622);
+    };
+
+    function alvo() {
+        limpaTela();
+        eixoX = Math.round(Math.random()*1354) + 1;
+        eixoY = Math.round(Math.random()*621) + 1;
+        //circulo(eixoX,eixoY,raio,corVermelha);
+        //circulo(eixoX,eixoY,raio-10,corBranca);
+        circulo(eixoX,eixoY,raio-20,corVermelha);
+        circulo(eixoX,eixoY,raio-30,corBranca);
+        circulo(eixoX,eixoY,raio-40,corVermelha);
+    };
+
+    function atira(evento) {
+
+        var posicaoX = evento.pageX;
+        var posicaoY = evento.pageY;
+        var distanciaX = posicaoX - eixoX;
+        var distanciaY = posicaoY - eixoY;
+        var distancia = Math.sqrt(distanciaX * distanciaX + distanciaY * distanciaY);
+
+        c.fillStyle = "blue";
+        c.beginPath();
+        c.arc(posicaoX, posicaoY, 4, 0, 2 * Math.PI);
+        c.fill();
+
+        if(distancia <= raio){
+            alert("Parabéns! Você acertou o alvo.");
+        } else {
+            alert("Tente de novo! Você errou o alvo.");
+        }
+    };
+
+    setInterval(alvo, 1000); //2000 = 1 seg.
+
+    tela.onclick = atira;
+
+</script>
